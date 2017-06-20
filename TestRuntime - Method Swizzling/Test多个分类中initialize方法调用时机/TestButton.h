@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSObject+MethodSwizzling.h"
 
 @interface TestButton : UIButton
 

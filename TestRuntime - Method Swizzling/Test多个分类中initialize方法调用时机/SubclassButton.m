@@ -25,68 +25,68 @@
  *
  */
 
-+ (void)load
-{
-    NSLog(@"SubclassButton %@ load",[self class]);
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        Class class = [self class];
-        SEL originalSelector = @selector(testButtonLog);
-        SEL swizzledSelector = @selector(xl_testButtonLog);
-        Method originalMethod = class_getInstanceMethod(class, originalSelector);
-        Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
-        
-        BOOL didAddMethod = class_addMethod(class,originalSelector,method_getImplementation(swizzledMethod),method_getTypeEncoding(swizzledMethod));
-        if (didAddMethod) {
-            class_replaceMethod(class,
-                                swizzledSelector,
-                                method_getImplementation(originalMethod),
-                                method_getTypeEncoding(originalMethod));
-        } else {
-            method_exchangeImplementations(originalMethod, swizzledMethod);
-        }
-    });
-}
-
-- (void)xl_testButtonLog
-{
-    NSLog(@"%s",__func__);
-    [self xl_testButtonLog];
-}
-
-//- (void)testButtonLog
+//+ (void)load
 //{
-//    NSLog(@"SubclassButton %s",__func__);
+//    NSLog(@"SubclassButton %@ load",[self class]);
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        Class class = [self class];
+//        SEL originalSelector = @selector(testButtonLog);
+//        SEL swizzledSelector = @selector(xl_testButtonLog);
+//        Method originalMethod = class_getInstanceMethod(class, originalSelector);
+//        Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
+//        
+//        BOOL didAddMethod = class_addMethod(class,originalSelector,method_getImplementation(swizzledMethod),method_getTypeEncoding(swizzledMethod));
+//        if (didAddMethod) {
+//            class_replaceMethod(class,
+//                                swizzledSelector,
+//                                method_getImplementation(originalMethod),
+//                                method_getTypeEncoding(originalMethod));
+//        } else {
+//            method_exchangeImplementations(originalMethod, swizzledMethod);
+//        }
+//    });
 //}
+//
+//- (void)xl_testButtonLog
+//{
+//    NSLog(@"%s",__func__);
+//    [self xl_testButtonLog];
+//}
+//
+////- (void)testButtonLog
+////{
+////    NSLog(@"SubclassButton %s",__func__);
+////}
 
 #pragma mark    -   情景2.1: 有缺陷的写法,没有使用class_addMethod方法,但是不会闪退
 
 
-+ (void)load
-{
-    NSLog(@"SubclassButton %@ load",[self class]);
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        Class class = [self class];
-        SEL originalSelector = @selector(testButtonLog);
-        SEL swizzledSelector = @selector(xl_testButtonLog);
-        Method originalMethod = class_getInstanceMethod(class, originalSelector);
-        Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
-        method_exchangeImplementations(originalMethod, swizzledMethod);
-    });
-    
-}
-
-- (void)xl_testButtonLog
-{
-    NSLog(@"%s",__func__);
-    [self xl_testButtonLog];
-}
-
-- (void)testButtonLog
-{
-    NSLog(@"SubclassButton %s",__func__);
-}
+//+ (void)load
+//{
+//    NSLog(@"SubclassButton %@ load",[self class]);
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        Class class = [self class];
+//        SEL originalSelector = @selector(testButtonLog);
+//        SEL swizzledSelector = @selector(xl_testButtonLog);
+//        Method originalMethod = class_getInstanceMethod(class, originalSelector);
+//        Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
+//        method_exchangeImplementations(originalMethod, swizzledMethod);
+//    });
+//    
+//}
+//
+//- (void)xl_testButtonLog
+//{
+//    NSLog(@"%s",__func__);
+//    [self xl_testButtonLog];
+//}
+//
+//- (void)testButtonLog
+//{
+//    NSLog(@"SubclassButton %s",__func__);
+//}
 
 #pragma mark    -   情景2.2: 会闪退
 

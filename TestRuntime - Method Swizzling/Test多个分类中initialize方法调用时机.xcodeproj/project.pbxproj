@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		763363951EF7D573009250F7 /* TestButton+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 763363941EF7D573009250F7 /* TestButton+Frame.m */; };
+		763363981EF8CB11009250F7 /* NSObject+MethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 763363971EF8CB11009250F7 /* NSObject+MethodSwizzling.m */; };
 		7681E6C01EF2A270009D159F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7681E6BF1EF2A270009D159F /* main.m */; };
 		7681E6C31EF2A270009D159F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7681E6C21EF2A270009D159F /* AppDelegate.m */; };
 		7681E6C61EF2A270009D159F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7681E6C51EF2A270009D159F /* ViewController.m */; };
@@ -42,6 +43,8 @@
 /* Begin PBXFileReference section */
 		763363931EF7D573009250F7 /* TestButton+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestButton+Frame.h"; sourceTree = "<group>"; };
 		763363941EF7D573009250F7 /* TestButton+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TestButton+Frame.m"; sourceTree = "<group>"; };
+		763363961EF8CB11009250F7 /* NSObject+MethodSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MethodSwizzling.h"; sourceTree = "<group>"; };
+		763363971EF8CB11009250F7 /* NSObject+MethodSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MethodSwizzling.m"; sourceTree = "<group>"; };
 		7681E6BB1EF2A270009D159F /* Test多个分类中initialize方法调用时机.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test多个分类中initialize方法调用时机.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7681E6BF1EF2A270009D159F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7681E6C11EF2A270009D159F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -135,6 +138,8 @@
 				7681E6CC1EF2A270009D159F /* LaunchScreen.storyboard */,
 				7681E6CF1EF2A270009D159F /* Info.plist */,
 				7681E6BE1EF2A270009D159F /* Supporting Files */,
+				763363961EF8CB11009250F7 /* NSObject+MethodSwizzling.h */,
+				763363971EF8CB11009250F7 /* NSObject+MethodSwizzling.m */,
 			);
 			path = "Test多个分类中initialize方法调用时机";
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7681E6C61EF2A270009D159F /* ViewController.m in Sources */,
+				763363981EF8CB11009250F7 /* NSObject+MethodSwizzling.m in Sources */,
 				7681E6C31EF2A270009D159F /* AppDelegate.m in Sources */,
 				7681E7051EF2A421009D159F /* TestButton.m in Sources */,
 				7681E70E1EF2A463009D159F /* SubclassButton+border.m in Sources */,

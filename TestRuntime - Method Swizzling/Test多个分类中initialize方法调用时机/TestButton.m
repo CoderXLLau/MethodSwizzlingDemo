@@ -7,6 +7,7 @@
 //
 
 #import "TestButton.h"
+#import "NSObject+MethodSwizzling.h"
 
 @implementation TestButton
 
@@ -18,9 +19,16 @@
 + (void)load
 {
     NSLog(@"%@ load",[self class]);
+    [self xl_exchangeInstanceMethod1:@selector(xl_dealloc) method2:NSSelectorFromString(@"dealloc")];
 }
 
-- (void)
+- (void)xl_dealloc
+{
+    NSLog(@"TestButton %s",__func__);
+    [self xl_dealloc];
+}
+
+- (void)testButtonLog
 {
     NSLog(@"TestButton %s",__func__);
 }
